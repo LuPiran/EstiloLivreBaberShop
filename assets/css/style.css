@@ -1,0 +1,140 @@
+:root {
+  --cor-principal: #ffc107;
+  --cor-escura: #111;
+}
+
+/* Fonte */
+
+body {
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Banner */
+
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/imagem1.jpg") center/cover no-repeat;
+
+  height: 90vh;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 193, 7, 0.1);
+  z-index: 1;
+}
+
+.banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards */
+
+.card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* WhatsApp */
+
+.whatsapp-float {
+  position: fixed;
+
+  bottom: 20px;
+
+  right: 20px;
+
+  background: #25d366;
+
+  color: white;
+
+  font-size: 28px;
+
+  padding: 12px 16px;
+
+  border-radius: 50%;
+
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Dark Mode */
+
+.dark-mode {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #34495e;
+
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.dark-mode .navbar {
+  background-color: black !important;
+}
+
+.dark-mode footer {
+  background-color: black;
+}
+
+/* Nav Active */
+
+.navbar-nav .nav-link.active {
+  color: #ffc107 !important;
+  font-weight: bold;
+}
+
+/* Carousel */
+
+.carousel-item {
+  padding: 40px;
+}
+
+/* Responsivo */
+
+@media (max-width: 768px) {
+  .banner {
+    height: 70vh;
+  }
+}
