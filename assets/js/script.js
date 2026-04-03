@@ -24,10 +24,10 @@ document
 
 // EMAILJS INIT
 
-if (typeof emailjs !== 'undefined') {
-  emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+if (typeof emailjs !== "undefined") {
+  emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
 } else {
-  console.warn('EmailJS not loaded. Email functionality will not work.');
+  console.warn("EmailJS not loaded. Email functionality will not work.");
 }
 
 // VALIDAÇÃO FORMULÁRIO
@@ -46,24 +46,28 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  if (typeof emailjs === 'undefined') {
+  if (typeof emailjs === "undefined") {
     alert("Serviço de e-mail não disponível. Mensagem não enviada.");
     return;
   }
 
   // Send email
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-    from_name: nome,
-    from_email: email,
-    message: mensagem
-  })
-  .then(function(response) {
-    alert("Mensagem enviada com sucesso!");
-    form.reset();
-  }, function(error) {
-    alert("Erro ao enviar mensagem. Tente novamente.");
-    console.log('FAILED...', error);
-  });
+  emailjs
+    .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      from_name: nome,
+      from_email: email,
+      message: mensagem,
+    })
+    .then(
+      function (response) {
+        alert("Mensagem enviada com sucesso!");
+        form.reset();
+      },
+      function (error) {
+        alert("Erro ao enviar mensagem. Tente novamente.");
+        console.log("FAILED...", error);
+      },
+    );
 });
 
 // AOS INIT
@@ -72,24 +76,24 @@ AOS.init();
 
 // MENU HIGHLIGHT
 
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
-window.addEventListener('scroll', () => {
-  let current = '';
+window.addEventListener("scroll", () => {
+  let current = "";
 
-  sections.forEach(section => {
+  sections.forEach((section) => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
     if (pageYOffset >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute('id');
+      current = section.getAttribute("id");
     }
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').substring(1) === current) {
-      link.classList.add('active');
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href").substring(1) === current) {
+      link.classList.add("active");
     }
   });
 });
